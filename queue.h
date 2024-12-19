@@ -4,8 +4,8 @@
 
 typedef struct
 {
-  patient info;
-  patient *next;
+  Patient info;
+  Patient *next;
 }SinglePat;
 //Pat is short for patient
 
@@ -33,7 +33,7 @@ PatQueue InitQueue()
   return f;
 }
 
-Patient HeadQueue(patqueue f)
+Patient HeadQueue(Patient f)
 {
   Patient X;
   X = f.head->info;
@@ -58,7 +58,7 @@ void Push(PatQueue *f,Patient x)
   }
 }
 
-void Pop(patqueue *f,patient *x)
+void Pop(PatQueue *f,Patient *x)
 {
   SinglePat *temp;
   *x = f.head -> info;
