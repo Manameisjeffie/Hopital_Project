@@ -16,18 +16,18 @@ typedef struct PatQueue{
 }PatQueue;
 
 bool IsEmpty(PatQueue Q){
-    return Q->head == NULL;
+    return Q.head == NULL;
     
 }
 
 PatQueue InitQueue(){
     PatQueue f;
-    f->head = NULL;
-    f->tail = NULL;
+    f.head = NULL;
+    f.tail = NULL;
     return f;
 }
 
-Patient HeadQueue(Patient *f){//hna bdeltha ga3 jon kan mroblha hakda khir
+Patient HeadQueue(PatQueue *f){//hna bdeltha ga3 jon kan mroblha hakda khir
     if (f->head == NULL) {
         printf("no patient fonded\n");
         exit(EXIT_FAILURE);
@@ -44,8 +44,8 @@ void Push(PatQueue *f,Patient x){
         printf("error in allocation in push fonction\n");
         exit(EXIT_FAILURE);
     }
-    
-    *temp-> patient. IP. firstName = x. IP. firstName;
+    temp->patient = x;
+    /**temp-> patient. IP. firstName = x. IP. firstName;
     *temp-> patient . IP.  lastName = x. IP. lastName;
     temp-> patient. age = x. age;
     temp-> patient. bloodType = x. bloodType;
@@ -53,7 +53,7 @@ void Push(PatQueue *f,Patient x){
     temp-> patient. illnessOrInjury = x. illnessOrInjury;
     temp-> patient. block = x. block;
     temp-> patient. priority = x. priority;
-    temp-> patient. personalDoctor = x. personalDoctor;
+    temp-> patient. personalDoctor = x. personalDoctor;*/
 
     temp->next = NULL;
 
