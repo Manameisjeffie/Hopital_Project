@@ -16,7 +16,6 @@ typedef struct PatQueue{
 
 bool IsEmpty(PatQueue Q){
     return Q.head == NULL;
-    
 }
 
 PatQueue InitQueue(){
