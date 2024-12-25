@@ -44,15 +44,7 @@ void Push(PatQueue *f,Patient x){
         exit(EXIT_FAILURE);
     }
     temp->patient = x;
-    /**temp-> patient. IP. firstName = x. IP. firstName;
-    *temp-> patient . IP.  lastName = x. IP. lastName;
-    temp-> patient. age = x. age;
-    temp-> patient. bloodType = x. bloodType;
-    temp-> patient. emergencySituation = x. emergencySituation;
-    temp-> patient. illnessOrInjury = x. illnessOrInjury;
-    temp-> patient. block = x. block;
-    temp-> patient. priority = x. priority;
-    temp-> patient. personalDoctor = x. personalDoctor;*/
+    
 
     temp->next = NULL;
 
@@ -72,15 +64,7 @@ void Pop(PatQueue *f,Patient *x){// the same I will kill you if you do this agai
         exit(EXIT_FAILURE);
     }
     *x = f-> head->patient;
-    /*x. IP. firstName = **f-> head. patient. IP. firstName;
-    *x. IP. lasttName = **f-> head. patient. IP.lasttName;
-    x. age = *f-> head. patient. age;
-    x. block = *f-> head. patient. block;
-    x. bloodType = *f-> head. patient. bloodType;
-    x. emergencySituation = *f->head. patient. emergencySituation;
-    x. illnessOrInjury = *f->head. patient. illnessOrInjury;
-    x. priority = *f-> head. patient. priority;
-    x. personalDoctor = *f->head. patient. personalDoctor*/
+    
 
     temp = f->head;
 
@@ -91,28 +75,4 @@ void Pop(PatQueue *f,Patient *x){// the same I will kill you if you do this agai
         f->head = f->head->next;
     }
     free(temp);
-}
-
-int main(){
-  Patient p1;
-  printf("3mr");
-
-  
-
-  scanf("%s %s %d", p1.IP.firstName, p1.IP.lastName, p1.age);
-
-  scanf("%s %s %c", p1.bloodType, p1.illnessOrInjury, p1.block);
-
-  scanf("%d %s %s", p1.priority, p1.personalDoctor.IP.firstName, p1.personalDoctor.IP.lastName);
-
-  scanf("%s %c", p1.personalDoctor.specialization, p1.personalDoctor.block);
-
-
-  printf("1 %s %s %d",p1.IP.firstName, p1.IP.lastName, p1.age);
-
-  printf("2 %s %s %c",p1.bloodType, p1.illnessOrInjury, p1.block);
-
-  printf("3 %d %s %s",p1.priority, p1.personalDoctor.IP.firstName, p1.personalDoctor.IP.lastName);
-
-  printf("4 %s %c",p1.personalDoctor.specialization, p1.personalDoctor.block);
 }
