@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"queue.h"
 #include<stdbool.h>
+#include"queue.h"
 
 #define MAX_SIZE 50
 
