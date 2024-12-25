@@ -2,7 +2,6 @@
 
 #include "mainDecelaration.h"
 
-
 typedef struct SinglePat{
     Patient patient;//drtha haka khir mn info
     struct SinglePat *next;//hna stikitha jon kan ghalt w makach katb struct
