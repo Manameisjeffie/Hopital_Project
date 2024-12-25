@@ -10,7 +10,7 @@ typedef struct PersonalInformation {
 typedef struct Doctor {
     PersonalInformation IP; //IP hiya mokhtasar ta3 PersonalInformation
     char specialization[MAX_SIZE];
-    char block //block li Responsable 3lih
+    char block; //block li Responsable 3lih
 }Doctor;
 
 typedef struct Patient {
