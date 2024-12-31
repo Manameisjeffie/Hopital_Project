@@ -5,6 +5,7 @@
 typedef struct PersonalInformation {
     char firstName[MAX_SIZE];
     char lastName[MAX_SIZE];
+    char gender;
 }PersonalInformation;
 
 typedef struct Doctor {
