@@ -4,7 +4,6 @@
 #include"queue.h"
 
 #define MAX_SIZE 50
-
 //this code should be removed at a later point
 
 typedef struct PersonalInformation{
