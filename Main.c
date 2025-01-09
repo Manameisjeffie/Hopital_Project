@@ -3,11 +3,12 @@
 #include <stdbool.h>
 #include "mainDeclaration.h"
 #include "queue.h"
-#include "funcitons.h"
+#include "functions.h"
 
 int main()
 {
     // For Now There is nothing here until i start working on it
-    printf("Hoptial Project, in progress.....");
+    printf("Hopital Project, in progress.....\n");
+    system("pause");
     return 0;
 }

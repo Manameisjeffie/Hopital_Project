@@ -1,22 +1,23 @@
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h>
 #include "mainDeclaration.h"
 #include "queue.h"
 
-PatQueue AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ) //SQ for standard queue and EQ for emergency queue
+// Function Made By Yasser Kadri
+void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ) //SQ for standard queue and EQ for emergency queue
 { 
     if (P.emergencySituation == false)
     {
-        Push(&SQ, P);
-        return SQ;
+        Push(SQ, P);
     }
     else
     {
-        Push(&EQ, P);
-        return EQ;
+        Push(EQ, P);
     }
 }
 
+// Function Made By Touri Houcine
 bool SearchPAt(PatQueue q, Patient p){
     Patient pq;//rana n7awso 3la p w pq w temp hada zyada ghir lel pop wel push
     PatQueue temp;
