@@ -18,9 +18,9 @@ typedef struct Patient {
     PersonalInformation IP;
     int age;
     char bloodType[3];
-    bool emergencySituation;
+    bool emergencySituation; // is this patient on a emergency or just the usual check in
     char illnessOrInjury[MAX_SIZE]; //مرض او اصابة
-    char block;
+    char block; //The Block he will pass in to be checked
     int priority; //ndiroha 0 ida emergency
     Doctor personalDoctor;
 }Patient;
