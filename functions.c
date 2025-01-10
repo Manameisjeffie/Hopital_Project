@@ -24,14 +24,14 @@ bool SearchPAt(PatQueue q, Patient p){
     int x;
     bool b;
 
-    temp.head=NULL;
-    temp.tail=NULL;
+    temp.head = NULL;
+    temp.tail = NULL;
 
-    if (p.IP.firstName== "?" || p.IP.lastName== "?"){
+    if (p.IP.firstName == "?" || p.IP.lastName == "?"){
         
         p.emergencySituation=(x!=0);// 0 m3ntha false w ay ra9m akher true
 
-        while (q.head!= NULL){
+        while (q.head != NULL){
             if (p.personalDoctor.block== q.head->info.block){//3jzt nachra7 mi 3labali ana chikor suuuuuu
 
                 if (p.IP.gender== q.head->info.IP.gender
@@ -41,31 +41,31 @@ bool SearchPAt(PatQueue q, Patient p){
                 && strcmp(p.personalDoctor.IP.firstName, q.head->info.personalDoctor.IP.firstName)== 0
                 && strcmp(p.personalDoctor.IP.lastName, q.head->info.personalDoctor.IP.lastName)== 0){//zdt hadi ligne bach btkon wad7a ktr
                     
-                    b=true;
+                    b = true;
                     break;
                 }
             }else{
                 Pop(&q,&pq);
                 Push(&temp,pq);
-                b=false;
+                b = false;
             }
         }
     }else{
-        while (q.head!= NULL){
+        while (q.head != NULL){
             if (strcmp(p.IP.firstName, q.head->info.IP.firstName)== 0, strcmp(p.IP.lastName, q.head->info.IP.lastName)== 0){
                 
-                    b=true;
+                    b = true;
                     break;
             }else{
-                Pop(&q,&pq);
-                Push(&temp,pq);
-                b=false;
+                Pop(&q, &pq);
+                Push(&temp, pq);
+                b = false;
             }
         }
     }
-    while (temp.head!=NULL){
-        Pop(&temp,&pq);
-        Push(&q,pq);
+    while (temp.head != NULL){
+        Pop(&temp, &pq);
+        Push(&q, pq);
     }
     free(temp.head);
     free(temp.tail);

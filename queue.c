@@ -5,7 +5,7 @@
 
 bool IsEmpty(PatQueue Q)
 {
-    return(Q.head==NULL);
+    return Q.head == NULL;
 }
 
 PatQueue InitQueue() {
@@ -17,7 +17,7 @@ PatQueue InitQueue() {
 
 Patient HeadQueue(PatQueue f) {
     Patient X;
-    if(f.head !=NULL){
+    if (f.head != NULL){
          X = f.head->info;
     }
     return X;
