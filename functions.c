@@ -3,17 +3,21 @@
 #include <stdlib.h>
 #include "mainDeclaration.h"
 #include "queue.h"
+#include "history.h"
 
 // Function Made By Yasser Kadri
-void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ) //SQ for standard queue and EQ for emergency queue
-{ 
+void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ for standard queue and EQ for emergency queue
+{
+    HistoryData data = {P, false, true};  
     if (P.emergencySituation == false)
     {
         Push(SQ, P);
+        AddHistory(history, data);
     }
     else
     {
         Push(EQ, P);
+        AddHistory(history, data);
     }
 }
 
