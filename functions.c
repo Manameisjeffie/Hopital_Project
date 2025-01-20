@@ -6,19 +6,20 @@
 #include "history.h"
 
 // Function Made By Yasser Kadri
-void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ for standard queue and EQ for emergency queue
+void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history,int *id) //SQ for standard queue and EQ for emergency queue
 {
     HistoryData data = {P, false, true};  
     if (P.emergencySituation == false)
     {
-        Push(SQ, P);
+        Push(&SQ, P);
         AddHistory(history, data);
     }
     else
     {
-        Push(EQ, P);
+        Push(&EQ, P);
         AddHistory(history, data);
     }
+    *id++;
 }
 
 // Function Made By Touri Houcine
