@@ -13,5 +13,6 @@ typedef struct {
 bool IsEmpty(PatQueue Q);
 PatQueue InitQueue();
 Patient HeadQueue(PatQueue f);
+Patient TailQueue(PatQueue f);
 void Push(PatQueue *f, Patient X);
 void Pop(PatQueue *f, Patient *X);
