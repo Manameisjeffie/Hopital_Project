@@ -23,6 +23,13 @@ Patient HeadQueue(PatQueue f) {
     return X;
 }
 
+Patient TailQueue(PatQueue f){
+    Patient X;
+    if(f.tail ! = NULL){
+        X = f.tail->info;
+    }
+    return X;
+}
 void Push(PatQueue *f, Patient X) {
     SinglePat *temp = (SinglePat*) malloc(sizeof(SinglePat));
     temp->info = X;
