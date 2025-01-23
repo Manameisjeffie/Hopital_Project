@@ -15,6 +15,7 @@ typedef struct Doctor {
 }Doctor;
 
 typedef struct Patient {
+    int id;
     PersonalInformation IP;
     int age;
     char bloodType[3];
