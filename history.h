@@ -11,8 +11,8 @@ typedef struct HistoryData
 typedef struct History
 {
     HistoryData info;
-    History* next;
-    History* previous;
+    struct History* next;
+    struct History* previous;
     unsigned int index;
 }History;
 

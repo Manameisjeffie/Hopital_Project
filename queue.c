@@ -25,7 +25,7 @@ Patient HeadQueue(PatQueue f) {
 
 Patient TailQueue(PatQueue f){
     Patient X;
-    if(f.tail ! = NULL){
+    if(f.tail != NULL){
         X = f.tail->info;
     }
     return X;

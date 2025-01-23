@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "mainDeclaration.h"
@@ -16,13 +17,13 @@ int max(int a, int b){
 
 void HandlePatientId(Patient P, PatQueue *SQ, PatQueue *EQ)
 {
-    if (isEmpty(SQ) && isEmpty(EQ))
+    if (IsEmpty(*SQ) && IsEmpty(*EQ))
     {
         P.id = 1;
     }
     else
     {
-        P.id = max(TailQueue(SQ).id, TailQueue(EQ).id) + 1;
+        P.id = max(TailQueue(*SQ).id, TailQueue(*EQ).id) + 1;
     }
 }
 
@@ -33,13 +34,13 @@ void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ fo
     if (P.emergencySituation == false)
     {
         HandlePatientId(P, SQ, EQ);
-        Push(&SQ, P);
+        Push(SQ, P);
         AddHistory(history, data);
     }
     else
     {
         HandlePatientId(P, SQ, EQ);
-        Push(&EQ, P);
+        Push(EQ, P);
         AddHistory(history, data);
     }
 }
@@ -100,16 +101,16 @@ bool SearchPAt(PatQueue q, Patient p){
 }
 
 // Function Made By Yasser Kadri
-void DeletePatient(Patient P , PatQueue *SQ , PatQueue *EQ){
-    if(P.emergencySituation == true){
-        Pop(&EQ,&P);
+void DeletePatient(Patient P, PatQueue *SQ, PatQueue *EQ){
+    if (P.emergencySituation == true) {
+        Pop(EQ, &P);
     }
     else{
-        if(IsEmpty(EQ)){
-            Pop(&SQ,&P);
+        if (IsEmpty(*EQ)) {
+            Pop(SQ, &P);
         }
         else{
-            printf("clear all emergencies before");
+            printf("clear all emergencies before\n");
         }
     }
 }

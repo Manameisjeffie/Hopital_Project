@@ -19,7 +19,8 @@ History* InitHistory(HistoryData data)
 //Adds at the end of list
 void AddHistory(History* history, HistoryData info)
 {
-    History* newElem, temp = history;
+    History* newElem;
+    History* temp = history;
     newElem = (History*) malloc(sizeof(History));
     newElem->info = info;
     if (temp == 0)

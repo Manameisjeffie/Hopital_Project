@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "mainDeclaration.h"
+#include "history.h"
 #include "queue.h"
 #include "functions.h"
 
