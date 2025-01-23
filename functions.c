@@ -101,16 +101,16 @@ bool SearchPAt(PatQueue q, Patient p){
 }
 
 // Function Made By Yasser Kadri
-void DeletePatient(Patient P, PatQueue *SQ, PatQueue *EQ){
-    if (P.emergencySituation == true) {
+void DeletePatient(PatQueue *SQ, PatQueue *EQ){
+    Patient P;
+    if (!isEmpty(EQ))
+    {
         Pop(EQ, &P);
+        return;
     }
-    else{
-        if (IsEmpty(*EQ)) {
-            Pop(SQ, &P);
-        }
-        else{
-            printf("clear all emergencies before\n");
-        }
+    
+    if (!isEmpty(SQ))
+    {
+        Pop(SQ, &P);
     }
 }
