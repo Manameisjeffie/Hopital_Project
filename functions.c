@@ -6,21 +6,42 @@
 #include "history.h"
 
 // Function Made By Yasser Kadri
-void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history, int *id) //SQ for standard queue and EQ for emergency queue
+int max(int a, int b){
+    if (a > b){
+        return a;
+    }
+    else
+        return b;
+}
+
+void HandlePatientId(Patient P, PatQueue *SQ, PatQueue *EQ)
 {
-    HistoryData data = {P, false, true};  
+    if (isEmpty(SQ) && isEmpty(EQ))
+    {
+        P.id = 1;
+    }
+    else
+    {
+        P.id = max(TailQueue(SQ).id, TailQueue(EQ).id) + 1;
+    }
+}
+
+void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ for standard queue and EQ for emergency queue
+{
+    HistoryData data = {P, false, true};
+
     if (P.emergencySituation == false)
     {
+        HandlePatientId(P, SQ, EQ);
         Push(&SQ, P);
         AddHistory(history, data);
     }
     else
     {
+        HandlePatientId(P, SQ, EQ);
         Push(&EQ, P);
         AddHistory(history, data);
     }
-    
-    *id++;
 }
 
 // Function Made By Touri Houcine
