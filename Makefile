@@ -1,2 +1,2 @@
 all:
-	gcc queue.c functions.c Main.c -o Hopital
+	gcc history.c queue.c functions.c Main.c -o Hopital
