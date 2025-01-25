@@ -22,6 +22,6 @@ typedef struct Patient {
     bool emergencySituation; // is this patient on a emergency or just the usual check in
     char illnessOrInjury[MAX_SIZE]; //مرض او اصابة
     char block; //The Block he will pass in to be checked
-    int priority; //ndiroha 0 ida emergency
+    //na7it priority ma na7tajohach
     Doctor personalDoctor;
 }Patient;
