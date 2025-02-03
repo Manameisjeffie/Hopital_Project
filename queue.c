@@ -3,8 +3,7 @@
 #include "mainDeclaration.h"
 #include "queue.h"
 
-bool IsEmpty(PatQueue Q)
-{
+bool IsEmpty(PatQueue Q){
     return Q.head == NULL;
 }
 
@@ -30,6 +29,7 @@ Patient TailQueue(PatQueue f){
     }
     return X;
 }
+
 void Push(PatQueue *f, Patient X) {
     SinglePat *temp = (SinglePat*) malloc(sizeof(SinglePat));
     temp->info = X;
@@ -41,6 +41,7 @@ void Push(PatQueue *f, Patient X) {
         f->tail->next = temp;
         f->tail = temp;
     }
+    free(temp);// zdt free bach tvidi temp ki tkaml
 }
 
 void Pop(PatQueue *f, Patient *X) {
