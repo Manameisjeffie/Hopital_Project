@@ -152,19 +152,19 @@ bool SearchPAt(PatQueue sq, PatQueue eq, Patient *p){//sq for standard queue and
 }
 
 // Function Made By Yasser Kadri
-void DeletePatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history){
-    HistoryData data = {P, false};
-    if (P.emergencySituation == true) {
+void DeletePatient(PatQueue *SQ, PatQueue *EQ, History* history){
+    Patient P;
+    if (!IsEmpty(*EQ)) {
         Pop(EQ, &P);
+        HistoryData data = {P, false};
         AddHistory(history, data);
     }
-    else{
-        if (IsEmpty(*EQ)) {
+    else if(!IsEmpty(*SQ)){
             Pop(SQ, &P);
+            HistoryData data = {P, false};
             AddHistory(history, data);
-        }
-        else{
-            printf("clear all emergencies before\n");
-        }
+    }
+    else{
+        printf("both queues are empty"); //no patients or all of them are women
     }
 }
