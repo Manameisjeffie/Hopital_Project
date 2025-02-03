@@ -3,7 +3,6 @@
 typedef struct HistoryData
 {
     Patient p;
-    bool hasBeenConsulted; //if Patient was checked by doc
     bool state; //if Patient was added/removed to/from the queue, state = true means added to the queue, state = false means removed from the queue
 }HistoryData;
 

@@ -29,7 +29,7 @@ void HandlePatientId(Patient P, PatQueue *SQ, PatQueue *EQ)
 
 void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ for standard queue and EQ for emergency queue
 {
-    HistoryData data = {P, false, true};
+    HistoryData data = {P, true};
 
     if (P.emergencySituation == false)
     {
@@ -152,16 +152,19 @@ bool SearchPAt(PatQueue sq, PatQueue eq, Patient *p){//sq for standard queue and
 }
 
 // Function Made By Yasser Kadri
-void DeletePatient(PatQueue *SQ, PatQueue *EQ){
-    Patient P;
-    if (!isEmpty(EQ))
-    {
+void DeletePatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history){
+    HistoryData data = {P, false};
+    if (P.emergencySituation == true) {
         Pop(EQ, &P);
-        return;
+        AddHistory(history, data);
     }
-    
-    if (!isEmpty(SQ))
-    {
-        Pop(SQ, &P);
+    else{
+        if (IsEmpty(*EQ)) {
+            Pop(SQ, &P);
+            AddHistory(history, data);
+        }
+        else{
+            printf("clear all emergencies before\n");
+        }
     }
 }
