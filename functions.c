@@ -165,6 +165,6 @@ void DeletePatient(PatQueue *SQ, PatQueue *EQ, History* history){
         AddHistory(history, data);
     }
     else {
-        printf("both queues are empty"); //no patients or all of them are women
+        printf("both queues are empty"); //no patients
     }
 }

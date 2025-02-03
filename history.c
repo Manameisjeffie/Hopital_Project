@@ -57,7 +57,8 @@ void ShowHistory(History* history)
     History* temp = history;
     while (temp != 0)
     {
-        printf("Patient Number: %u\n", temp->index);
+        printf("History Position: %u\n", temp->index);
+        printf("Patient ID: %u\n", temp->info.p.id);
         printf("Full Name: %s %s\n", temp->info.p.IP.firstName, temp->info.p.IP.lastName);
         printf("Age: %d\n", temp->info.p.age);
         printf("Gender: %c\n", temp->info.p.IP.gender);
@@ -74,7 +75,8 @@ void ShowMoreInfo(History* history, int index)
     {
         temp = temp->next;
     }
-    printf("Patient Number: %u\n", temp->index);
+    printf("History Position: %u\n", temp->index);
+    printf("Patient ID: %u\n", temp->info.p.id);
     printf("Full Name: %s %s\n", temp->info.p.IP.firstName, temp->info.p.IP.lastName);
     printf("Age: %d\n", temp->info.p.age);
     printf("Gender: %c\n", temp->info.p.IP.gender);
