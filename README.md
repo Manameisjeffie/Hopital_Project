@@ -15,6 +15,8 @@ if this doesn't work or you don't have Make Installed then run this:
 gcc history.c queue.c functions.c Main.c -o Hopital
 ```
 
+**Note**: GCC Compiler has to be installed.
+
 ## Features
 
 - **Add Patient**: Add a new patient to the system. Patients can be added to either the standard queue or the emergency queue.
@@ -23,7 +25,7 @@ gcc history.c queue.c functions.c Main.c -o Hopital
 - **Patient History**: View the history of all patients added/removed to/from the system.
 
 ## Data Structures
-- **Patient**: contains all the informations of a patient(ID, IP(first and last name), the illness or injury, Condition(standard or emergency), age , bloodtype, block of treatment, personal doctor).
+- **Patient**: contains all the informations of a patient(ID, IP(first and last name), the illness or injury, Condition(standard or emergency), age, bloodtype, block of treatment, personal doctor).
 
 - **Queues**: Two queues are used to manage patients:
   - **Standard Queue**: For patients with non-urgent conditions.
