@@ -17,5 +17,5 @@ typedef struct History
 History* InitHistory();
 void AddHistory(History* history, HistoryData info, int* lastElemIndex);
 HistoryData get(History* history, int index);
-void ShowHistory(History* history);
+void ShowHistory(History* history, int lastElemIndex);
 void ShowMoreInfo(History* history, int index);
