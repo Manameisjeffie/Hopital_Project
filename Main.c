@@ -14,7 +14,7 @@ int main()
     History* hist = 0; //The History of the actions taken
     HistoryData data;
     int numberChoice, currentDocArraySize = 0, chooseDoc, lastElemIndexHist = 0, indexChoice = 0;
-    char ynq;
+    char ynq, term;
     bool isRunning = true;
     Doctor* docs;
 
@@ -42,9 +42,13 @@ int main()
         if (isRunning == false) break;
 
         printf("\n1 - Add Patient to the Queue \n2 - Remove Patient From The Queue (Passed his/her checkup or he/her are being treated rightnow) \n3 - View History of changes \n4 - Add A Doctor \n5 - Search For a Specific Patient \n6 - Exit\n");
-        scanf("%d", &numberChoice);
+        if (scanf("%d%c", &numberChoice, &term) != 2 || term != '\n'){
+            printf("failure re-launch program\n");
+            break;
+        }
 
         switch (numberChoice)
+    
         {
             case 1:
                 if (docs == 0)
@@ -118,29 +122,31 @@ int main()
                 break;
             case 3:
                 ShowHistory(hist, lastElemIndexHist);
-                printf("Show More Details ? [Y/n]");
-                scanf(" %c", &ynq);
-                while (!(ynq == 'Y' || ynq == 'y' || ynq == 'n' || ynq == 'N'))
-                {
-                    printf("State your answer correctly: ");
+                if (lastElemIndexHist != 0) {
+                    printf("Show More Details ? [Y/n]");
                     scanf(" %c", &ynq);
-                }
-
-                if (ynq == 'Y' || ynq == 'y')
-                {
-                    printf("Choose which One you want to see in more details: ");
-                    scanf("%d", &indexChoice);
-                    while (indexChoice < 1 || indexChoice > lastElemIndexHist)
+                    while (!(ynq == 'Y' || ynq == 'y' || ynq == 'n' || ynq == 'N'))
                     {
-                        printf("Make sure you choose a number within range: ");
-                        scanf("%d", &indexChoice);
+                        printf("State your answer correctly: ");
+                        scanf(" %c", &ynq);
                     }
-                    ShowMoreInfo(hist, indexChoice);
+
+                    if (ynq == 'Y' || ynq == 'y')
+                    {
+                        printf("Choose which One you want to see in more details: ");
+                        scanf("%d", &indexChoice);
+                        while (indexChoice < 1 || indexChoice > lastElemIndexHist)
+                        {
+                            printf("Make sure you choose a number within range: ");
+                            scanf("%d", &indexChoice);
+                        }
+                        ShowMoreInfo(hist, indexChoice);
+                    }
                 }
+               
                 break;
             case 4:
-                if (docs == 0)
-                {
+                if (docs == 0) {
                     docs = malloc(MAX_SIZE*sizeof(Doctor));
                 }
                 Doctor d;
@@ -168,10 +174,12 @@ int main()
                     Patient p;
                     printf("Enter The ID of the Patient you want to find: ");
                     scanf("%d", &(p.id));
-                    printf("Enter The Patient's you want to find First Name: ");
-                    scanf("%49s", &(p.IP.firstName));
-                    printf("Enter The Patient's you want to find Last Name: ");
-                    scanf("%49s", &(p.IP.lastName));
+                    if(p.id<=0){
+                        printf("Enter The Patient's you want to find First Name: ");
+                        scanf("%49s", &(p.IP.firstName));
+                        printf("Enter The Patient's you want to find Last Name: ");
+                        scanf("%49s", &(p.IP.lastName));
+                    }
                     if (SearchPAt(SQ, EQ, &p))
                     {
                         printf("Patient Was Found\n");
