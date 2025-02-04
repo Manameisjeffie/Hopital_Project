@@ -130,7 +130,7 @@ int main()
                 {
                     printf("Choose which One you want to see in more details: ");
                     scanf("%d", &indexChoice);
-                    while (indexChoice < 1 && indexChoice > lastElemIndexHist)
+                    while (indexChoice < 1 || indexChoice > lastElemIndexHist)
                     {
                         printf("Make sure you choose a number within range: ");
                         scanf("%d", &indexChoice);
