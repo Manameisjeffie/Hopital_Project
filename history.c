@@ -83,7 +83,8 @@ void ShowMoreInfo(History* history, int index)
     {
         temp = temp->next;
     }
-    printf("History Position: %u\n", temp->index);
+    printf("-------------------------------------------------\n");
+    printf("\nHistory Position: %u\n", temp->index);
     printf("Patient ID: %u\n", temp->info.p.id);
     printf("Full Name: %s %s\n", temp->info.p.IP.firstName, temp->info.p.IP.lastName);
     printf("Age: %d\n", temp->info.p.age);
@@ -93,6 +94,5 @@ void ShowMoreInfo(History* history, int index)
     printf("The Block he will pass in: %c\n", temp->info.p.block);
     printf("is it an Emergency ?: %s\n", temp->info.p.emergencySituation ? "Yes" : "No");
     printf("Was %s The Waiting Queue, in the %s Queue\n", temp->info.state ? "Added To" : "Removed From", temp->info.p.emergencySituation ? "Emergency" : "Standard");
-    //temp = 0;
-    //free(temp);
+    printf("\n-------------------------------------------------\n");
 }
