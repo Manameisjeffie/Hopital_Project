@@ -163,7 +163,7 @@ int main()
                 currentDocArraySize++;
                 break;
             case 5:
-                if (!IsEmpty(SQ) && !IsEmpty(EQ))
+                if (!IsEmpty(SQ) || !IsEmpty(EQ))
                 {
                     Patient p;
                     printf("Enter The ID of the Patient you want to find: ");
