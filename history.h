@@ -11,12 +11,11 @@ typedef struct History
 {
     HistoryData info;
     struct History* next;
-    struct History* previous;
     unsigned int index;
 }History;
 
-History* InitHistory(HistoryData data);
-void AddHistory(History* history, HistoryData info);
+History* InitHistory();
+void AddHistory(History* history, HistoryData info, int* lastElemIndex);
 HistoryData get(History* history, int index);
 void ShowHistory(History* history);
 void ShowMoreInfo(History* history, int index);

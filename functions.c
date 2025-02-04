@@ -12,36 +12,39 @@ int max(int a, int b){
         return a;
     }
     else
+    {
         return b;
+    }
 }
 
-void HandlePatientId(Patient P, PatQueue *SQ, PatQueue *EQ)
+void HandlePatientId(Patient *P, PatQueue *SQ, PatQueue *EQ)
 {
     if (IsEmpty(*SQ) && IsEmpty(*EQ))
     {
-        P.id = 1;
+        P->id = 1;
     }
     else
     {
-        P.id = max(TailQueue(*SQ).id, TailQueue(*EQ).id) + 1;
+        P->id = max(TailQueue(*SQ).id, TailQueue(*EQ).id) + 1;
     }
 }
 
-void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history) //SQ for standard queue and EQ for emergency queue
+void AddPatient(Patient P, PatQueue *SQ, PatQueue *EQ, History* history, int* lastElemIndex) //SQ for standard queue and EQ for emergency queue
 {
-    HistoryData data = {P, true};
+    HistoryData data;
+    HandlePatientId(&P, SQ, EQ);
+    data.p = P;
+    data.state = true;
 
     if (P.emergencySituation == false)
     {
-        HandlePatientId(P, SQ, EQ);
         Push(SQ, P);
-        AddHistory(history, data);
+        AddHistory(history, data, lastElemIndex);
     }
     else
     {
-        HandlePatientId(P, SQ, EQ);
         Push(EQ, P);
-        AddHistory(history, data);
+        AddHistory(history, data, lastElemIndex);
     }
 }
 
@@ -152,19 +155,19 @@ bool SearchPAt(PatQueue sq, PatQueue eq, Patient *p){//sq for standard queue and
 }
 
 // Function Made By Yasser Kadri
-void DeletePatient(PatQueue *SQ, PatQueue *EQ, History* history){
+void DeletePatient(PatQueue *SQ, PatQueue *EQ, History* history, int* lastElemIndex){
     Patient P;
     if (!IsEmpty(*EQ)) {
         Pop(EQ, &P);
         HistoryData data = {P, false};
-        AddHistory(history, data);
+        AddHistory(history, data, lastElemIndex);
     }
     else if (!IsEmpty(*SQ)) {
         Pop(SQ, &P);
         HistoryData data = {P, false};
-        AddHistory(history, data);
+        AddHistory(history, data, lastElemIndex);
     }
     else {
-        printf("both queues are empty"); //no patients
+        printf("both queues are empty\n"); //no patients
     }
 }
